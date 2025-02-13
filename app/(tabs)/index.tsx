@@ -1,4 +1,5 @@
-import { SafeAreaView, StyleSheet } from 'react-native';
+import * as FileSystem from 'expo-file-system';
+import { Image, SafeAreaView, StyleSheet } from 'react-native';
 
 import { mapStyle } from '@/constants/mapStyle';
 import { Camera, MapView } from '@maplibre/maplibre-react-native';
@@ -6,7 +7,8 @@ import { Camera, MapView } from '@maplibre/maplibre-react-native';
 export default function HomeScreen() {
     return (
         <SafeAreaView style={styles.container}>
-            <MapView style={styles.container} mapStyle={JSON.stringify(mapStyle)}>
+            <Image width={200} height={150} source={{ uri: `${FileSystem.bundleDirectory}sprite.png` }} />
+            <MapView style={styles.container} mapStyle={mapStyle}>
                 <Camera minZoomLevel={0} maxZoomLevel={8} />
             </MapView>
         </SafeAreaView>
